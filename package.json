@@ -2,9 +2,9 @@
   "name": "node-js-server-auth",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
+    "start": "nodemon --exec babel-node src/server.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "precommit": "lint-staged"
@@ -19,6 +19,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "pg": "^7.4.3",
     "sequelize": "^4.37.10"
   },
