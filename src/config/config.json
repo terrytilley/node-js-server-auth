@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "terry",
+    "password": "postgres",
+    "database": "node-js-server-auth",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
