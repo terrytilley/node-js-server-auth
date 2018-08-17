@@ -1,9 +1,0 @@
-{
-  "development": {
-    "dialect": "postgres",
-    "host": "localhost",
-    "username": "",
-    "password": "postgres",
-    "database": "node_api_boilerplate"
-  }
-}

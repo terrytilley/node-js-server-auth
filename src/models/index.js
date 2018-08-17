@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 
 const env = process.env.NODE_ENV || 'development';
-const { database, username, password } = require('../config/config.json')[env];
+const { database, username, password } = require('../config/config.js')[env];
 
 const sequelize = new Sequelize(database, username, password, {
   dialect: 'postgres',
