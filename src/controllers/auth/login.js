@@ -1,6 +1,6 @@
 import { setUserInfo, generateToken } from '../../lib/auth';
 
-const signIn = async (req, res) => {
+const login = async (req, res) => {
   const userInfo = setUserInfo(req.user);
 
   res.status(200).json({
@@ -9,4 +9,4 @@ const signIn = async (req, res) => {
   });
 };
 
-export default signIn;
+export default login;

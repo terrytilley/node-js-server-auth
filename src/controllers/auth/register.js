@@ -1,7 +1,7 @@
 import models from '../../models';
 import { setUserInfo, generateToken } from '../../lib/auth';
 
-const signUp = async (req, res, next) => {
+const register = async (req, res, next) => {
   try {
     const user = await models.User.create(req.body);
     const userInfo = setUserInfo(user);
@@ -15,4 +15,4 @@ const signUp = async (req, res, next) => {
   }
 };
 
-export default signUp;
+export default register;
