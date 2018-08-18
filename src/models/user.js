@@ -43,10 +43,12 @@ export default (sequelize, DataTypes) => {
           },
         },
       },
+      resetToken: DataTypes.STRING,
+      resetExpires: DataTypes.DATE,
     },
     {
       hooks: {
-        afterValidate: async user => {
+        beforeCreate: async user => {
           const hashedPassword = await bcrypt.hash(user.password, 12);
           // eslint-disable-next-line no-param-reassign
           user.password = hashedPassword;

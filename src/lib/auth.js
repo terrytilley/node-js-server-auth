@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 
 export const setUserInfo = user => {
@@ -17,3 +18,14 @@ export const generateToken = user => {
     expiresIn: 604800, // a week in seconds
   });
 };
+
+export const cryptoToken = () =>
+  new Promise((resolve, reject) => {
+    crypto.randomBytes(48, (err, buffer) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(buffer.toString('hex'));
+      }
+    });
+  });
