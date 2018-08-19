@@ -7,6 +7,7 @@ export const setUserInfo = user => {
     id: user.id,
     email: user.email,
     username: user.username,
+    role: user.role,
   };
 
   return getUserInfo;
