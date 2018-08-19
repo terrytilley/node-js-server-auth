@@ -43,6 +43,10 @@ export default (sequelize, DataTypes) => {
           },
         },
       },
+      role: {
+        type: DataTypes.ENUM('user', 'admin'),
+        defaultValue: 'user',
+      },
       resetToken: DataTypes.STRING,
       resetExpires: DataTypes.DATE,
     },

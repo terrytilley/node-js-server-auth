@@ -7,7 +7,7 @@ const forgotPassword = async ({ body: { email } }, res, next) => {
     const user = await models.User.find({ where: { email } });
 
     if (!user) {
-      return res.status(200).json({ message: 'User not found' });
+      return res.status(200).json({ message: 'No user found' });
     }
 
     const resetToken = await cryptoToken();
