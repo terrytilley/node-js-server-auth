@@ -7,7 +7,7 @@ const forgotPassword = async ({ body: { email } }, res, next) => {
     const user = await models.User.find({ where: { email } });
 
     if (!user) {
-      return res.status(200).json({ message: 'No user found' });
+      return res.status(200).json({ error: 'No user found' });
     }
 
     const resetToken = await cryptoToken();
@@ -20,7 +20,9 @@ const forgotPassword = async ({ body: { email } }, res, next) => {
       { where: { email } }
     );
 
-    const html = `<a href="http://localhost:8000/api/v1/reset-password/${resetToken}" itemprop="url" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #348eda; margin: 0; border-color: #348eda; border-style: solid; border-width: 10px 20px;">Reset your password</a>`;
+    const html = `<a href="${
+      process.env.CLIENT_URL
+    }/reset-password/${resetToken}" itemprop="url" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #348eda; margin: 0; border-color: #348eda; border-style: solid; border-width: 10px 20px;">Reset your password</a>`;
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',

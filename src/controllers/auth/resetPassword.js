@@ -6,7 +6,7 @@ const resetPassword = async ({ body: { password, token } }, res, next) => {
     const user = await models.User.find({ where: { resetToken: token } });
 
     if (!user) {
-      return res.status(200).json({ message: 'No user found' });
+      return res.status(200).json({ error: 'No user found' });
     }
 
     const { id, resetExpires } = user;
